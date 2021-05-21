@@ -30,13 +30,13 @@ class MainActivity : AppCompatActivity(),
 
         Toast.makeText(baseContext, "作者：陳盈如", Toast.LENGTH_LONG).show()
 
-        imgNext.setOnLongClickListener(object : View.OnLongClickListener {
+        /*imgNext.setOnLongClickListener(object : View.OnLongClickListener {
             override fun onLongClick(p0: View?): Boolean {
                 intent = Intent(this@MainActivity, GameActivity::class.java)
                 startActivity(intent)
                 return true
             }
-        })
+        })*/
 
         val img: ImageView = findViewById(R.id.imgTitle)
         GlideApp.with(this)
@@ -75,7 +75,8 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onLongPress(e: MotionEvent?) {
-
+        intent = Intent(this@MainActivity, GameActivity::class.java)
+        startActivity(intent)
     }
 
     fun ShowPicture(){

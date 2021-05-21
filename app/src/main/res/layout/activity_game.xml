@@ -12,7 +12,7 @@
         android:id="@+id/txvMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="遊戲畫面" />
+        android:text="請畫出" />
 
     <Button
         android:id="@+id/btnBack"
