@@ -28,7 +28,11 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
+        val img: ImageView = findViewById(R.id.imgTitle)
+        GlideApp.with(this)
+            .load(R.drawable.cover)
+            .override(800, 600)
+            .into(img)
 
     }
 }
