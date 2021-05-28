@@ -19,6 +19,8 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
+        btnBack.isEnabled = false
+
         var intent = getIntent()
         Picture1 = intent.getIntExtra("形狀", 0) //傳值，沒有就
         when(Picture1){
@@ -80,15 +82,22 @@ class GameActivity : AppCompatActivity() {
         var FlagDraw:Int = 0
         when (outputs[0].label) {
             "circle" -> {Result = "圓形"
-                FlagDraw=1}
-            "square" -> {Result = "方形"
-                FlagDraw=2}
-            "star" -> {Result = "星形"
-                FlagDraw=3}
+                FlagDraw=0}
             "triangle" -> {Result = "三角形"
-                FlagDraw=4}
+                FlagDraw=1}
+            "star" -> {Result = "星形"
+                FlagDraw=2}
+            "square" -> {Result = "方形"
+                FlagDraw=3}
         }
-        Result += ": " + String.format("%.1f%%", outputs[0].score * 100.0f)
+        //Result += ": " + String.format("%.1f%%", outputs[0].score * 100.0f)
+        Result = "你畫的是" + Result + "，"
+        if(Picture1 == FlagDraw){
+            Result += "恭喜順利過關!"
+            btnBack.isEnabled = true
+        }else{
+            Result += "請再試試看喔!"
+        }
 
 
         // Releases model resources if no longer used.
