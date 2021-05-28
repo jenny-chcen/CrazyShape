@@ -12,9 +12,21 @@ import org.tensorflow.lite.support.image.TensorImage
 import tw.edu.pu.csim.s1082835.crazyshape.ml.Shapes
 
 class GameActivity : AppCompatActivity() {
+
+    var Picture1:Int = 0;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        var intent = getIntent()
+        Picture1 = intent.getIntExtra("形狀", 0) //傳值，沒有就
+        when(Picture1){
+            0-> txvMsg.text = "請畫出圓形"
+            1-> txvMsg.text = "請畫出三角形"
+            2-> txvMsg.text = "請畫出星形"
+            3-> txvMsg.text = "請畫出方形"
+        }
 
         btnBack.setOnClickListener(object: View.OnClickListener{
             override fun onClick(p0: View?) {

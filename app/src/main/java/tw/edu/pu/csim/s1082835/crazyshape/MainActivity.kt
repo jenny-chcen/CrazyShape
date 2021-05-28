@@ -29,8 +29,15 @@ class MainActivity : AppCompatActivity(),
         imgNext.setOnTouchListener(this)
 
         Toast.makeText(baseContext, "作者：陳盈如", Toast.LENGTH_LONG).show()
+        ShowPicture()
 
-        /*imgNext.setOnLongClickListener(object : View.OnLongClickListener {
+        /*imgNext.setOnClickListener(object : View.OnClickListener { //短按監聽
+            override fun onClick(p0: View?) {
+                ShowPicture()
+            }
+        })*/
+
+        /*imgNext.setOnLongClickListener(object : View.OnLongClickListener { //長按監聽
             override fun onLongClick(p0: View?): Boolean {
                 intent = Intent(this@MainActivity, GameActivity::class.java)
                 startActivity(intent)
@@ -75,7 +82,9 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onLongPress(e: MotionEvent?) {
-        intent = Intent(this@MainActivity, GameActivity::class.java)
+        intent = Intent(this@MainActivity, GameActivity::class.java).apply{
+            putExtra("形狀", PictureNo)
+        }
         startActivity(intent)
     }
 
